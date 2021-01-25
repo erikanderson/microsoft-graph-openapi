@@ -1,0 +1,3437 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "OData Service for namespace microsoft.graph",
+      "description": "This OData service is located at https://graph.microsoft.com/v1.0",
+      "version": "1.0.1"
+    },
+    "servers": [
+      {
+        "url": "https://graph.microsoft.com/v1.0"
+      }
+    ],
+    "paths": {
+      "/users": {
+          "get": {
+            "tags": [
+              "users.user"
+            ],
+            "summary": "Get entities from users",
+            "operationId": "users.user.ListUser",
+            "parameters": [
+              {
+                "$ref": "#/components/parameters/top"
+              },
+              {
+                "$ref": "#/components/parameters/search"
+              },
+              {
+                "name": "$orderby",
+                "in": "query",
+                "description": "Order items by property values",
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "id",
+                      "id desc",
+                      "deletedDateTime",
+                      "deletedDateTime desc",
+                      "accountEnabled",
+                      "accountEnabled desc",
+                      "ageGroup",
+                      "ageGroup desc",
+                      "assignedLicenses",
+                      "assignedLicenses desc",
+                      "assignedPlans",
+                      "assignedPlans desc",
+                      "businessPhones",
+                      "businessPhones desc",
+                      "city",
+                      "city desc",
+                      "companyName",
+                      "companyName desc",
+                      "consentProvidedForMinor",
+                      "consentProvidedForMinor desc",
+                      "country",
+                      "country desc",
+                      "department",
+                      "department desc",
+                      "displayName",
+                      "displayName desc",
+                      "givenName",
+                      "givenName desc",
+                      "imAddresses",
+                      "imAddresses desc",
+                      "jobTitle",
+                      "jobTitle desc",
+                      "legalAgeGroupClassification",
+                      "legalAgeGroupClassification desc",
+                      "mail",
+                      "mail desc",
+                      "mailNickname",
+                      "mailNickname desc",
+                      "mobilePhone",
+                      "mobilePhone desc",
+                      "onPremisesExtensionAttributes",
+                      "onPremisesExtensionAttributes desc",
+                      "onPremisesImmutableId",
+                      "onPremisesImmutableId desc",
+                      "onPremisesLastSyncDateTime",
+                      "onPremisesLastSyncDateTime desc",
+                      "onPremisesProvisioningErrors",
+                      "onPremisesProvisioningErrors desc",
+                      "onPremisesSecurityIdentifier",
+                      "onPremisesSecurityIdentifier desc",
+                      "onPremisesSyncEnabled",
+                      "onPremisesSyncEnabled desc",
+                      "onPremisesDomainName",
+                      "onPremisesDomainName desc",
+                      "onPremisesSamAccountName",
+                      "onPremisesSamAccountName desc",
+                      "onPremisesUserPrincipalName",
+                      "onPremisesUserPrincipalName desc",
+                      "passwordPolicies",
+                      "passwordPolicies desc",
+                      "passwordProfile",
+                      "passwordProfile desc",
+                      "officeLocation",
+                      "officeLocation desc",
+                      "postalCode",
+                      "postalCode desc",
+                      "preferredLanguage",
+                      "preferredLanguage desc",
+                      "provisionedPlans",
+                      "provisionedPlans desc",
+                      "proxyAddresses",
+                      "proxyAddresses desc",
+                      "state",
+                      "state desc",
+                      "streetAddress",
+                      "streetAddress desc",
+                      "surname",
+                      "surname desc",
+                      "usageLocation",
+                      "usageLocation desc",
+                      "userPrincipalName",
+                      "userPrincipalName desc",
+                      "userType",
+                      "userType desc",
+                      "mailboxSettings",
+                      "mailboxSettings desc",
+                      "aboutMe",
+                      "aboutMe desc",
+                      "birthday",
+                      "birthday desc",
+                      "hireDate",
+                      "hireDate desc",
+                      "interests",
+                      "interests desc",
+                      "mySite",
+                      "mySite desc",
+                      "pastProjects",
+                      "pastProjects desc",
+                      "preferredName",
+                      "preferredName desc",
+                      "responsibilities",
+                      "responsibilities desc",
+                      "schools",
+                      "schools desc",
+                      "skills",
+                      "skills desc",
+                      "deviceEnrollmentLimit",
+                      "deviceEnrollmentLimit desc"
+                    ],
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "name": "$select",
+                "in": "query",
+                "description": "Select properties to be returned",
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "id",
+                      "deletedDateTime",
+                      "accountEnabled",
+                      "ageGroup",
+                      "assignedLicenses",
+                      "assignedPlans",
+                      "businessPhones",
+                      "city",
+                      "companyName",
+                      "consentProvidedForMinor",
+                      "country",
+                      "department",
+                      "displayName",
+                      "givenName",
+                      "imAddresses",
+                      "jobTitle",
+                      "legalAgeGroupClassification",
+                      "mail",
+                      "mailNickname",
+                      "mobilePhone",
+                      "onPremisesExtensionAttributes",
+                      "onPremisesImmutableId",
+                      "onPremisesLastSyncDateTime",
+                      "onPremisesProvisioningErrors",
+                      "onPremisesSecurityIdentifier",
+                      "onPremisesSyncEnabled",
+                      "onPremisesDomainName",
+                      "onPremisesSamAccountName",
+                      "onPremisesUserPrincipalName",
+                      "passwordPolicies",
+                      "passwordProfile",
+                      "officeLocation",
+                      "postalCode",
+                      "preferredLanguage",
+                      "provisionedPlans",
+                      "proxyAddresses",
+                      "state",
+                      "streetAddress",
+                      "surname",
+                      "usageLocation",
+                      "userPrincipalName",
+                      "userType",
+                      "mailboxSettings",
+                      "aboutMe",
+                      "birthday",
+                      "hireDate",
+                      "interests",
+                      "mySite",
+                      "pastProjects",
+                      "preferredName",
+                      "responsibilities",
+                      "schools",
+                      "skills",
+                      "deviceEnrollmentLimit",
+                      "ownedDevices",
+                      "registeredDevices",
+                      "manager",
+                      "directReports",
+                      "memberOf",
+                      "createdObjects",
+                      "ownedObjects",
+                      "licenseDetails",
+                      "extensions",
+                      "outlook",
+                      "messages",
+                      "mailFolders",
+                      "calendar",
+                      "calendars",
+                      "calendarGroups",
+                      "calendarView",
+                      "events",
+                      "people",
+                      "contacts",
+                      "contactFolders",
+                      "inferenceClassification",
+                      "photo",
+                      "photos",
+                      "drive",
+                      "drives",
+                      "planner",
+                      "onenote",
+                      "managedDevices",
+                      "managedAppRegistrations",
+                      "deviceManagementTroubleshootingEvents",
+                      "activities",
+                      "insights",
+                      "settings"
+                    ],
+                    "type": "string"
+                  }
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Retrieved entities",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "title": "Collection of user",
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/microsoft.graph.user"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "default": {
+                "$ref": "#/components/responses/error"
+              }
+            },
+            "x-ms-docs-operation-type": "operation"
+          },
+          "post": {
+            "tags": [
+              "users.user"
+            ],
+            "summary": "Add new entity to users",
+            "operationId": "users.user.CreateUser",
+            "requestBody": {
+              "description": "New entity",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/microsoft.graph.user"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "201": {
+                "description": "Created entity",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/microsoft.graph.user"
+                    }
+                  }
+                }
+              },
+              "default": {
+                "$ref": "#/components/responses/error"
+              }
+            },
+            "x-ms-docs-operation-type": "operation"
+          }
+        },
+        "/users/{user-id}": {
+          "get": {
+            "tags": [
+              "users.user"
+            ],
+            "summary": "Get entity from users by key",
+            "operationId": "users.user.GetUser",
+            "parameters": [
+              {
+                "name": "user-id",
+                "in": "path",
+                "description": "key: user-id",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                },
+                "x-ms-docs-key-type": "user"
+              },
+              {
+                "name": "$select",
+                "in": "query",
+                "description": "Select properties to be returned",
+                "schema": {
+                  "uniqueItems": true,
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "id",
+                      "deletedDateTime",
+                      "accountEnabled",
+                      "ageGroup",
+                      "assignedLicenses",
+                      "assignedPlans",
+                      "businessPhones",
+                      "city",
+                      "companyName",
+                      "consentProvidedForMinor",
+                      "country",
+                      "department",
+                      "displayName",
+                      "givenName",
+                      "imAddresses",
+                      "jobTitle",
+                      "legalAgeGroupClassification",
+                      "mail",
+                      "mailNickname",
+                      "mobilePhone",
+                      "onPremisesExtensionAttributes",
+                      "onPremisesImmutableId",
+                      "onPremisesLastSyncDateTime",
+                      "onPremisesProvisioningErrors",
+                      "onPremisesSecurityIdentifier",
+                      "onPremisesSyncEnabled",
+                      "onPremisesDomainName",
+                      "onPremisesSamAccountName",
+                      "onPremisesUserPrincipalName",
+                      "passwordPolicies",
+                      "passwordProfile",
+                      "officeLocation",
+                      "postalCode",
+                      "preferredLanguage",
+                      "provisionedPlans",
+                      "proxyAddresses",
+                      "state",
+                      "streetAddress",
+                      "surname",
+                      "usageLocation",
+                      "userPrincipalName",
+                      "userType",
+                      "mailboxSettings",
+                      "aboutMe",
+                      "birthday",
+                      "hireDate",
+                      "interests",
+                      "mySite",
+                      "pastProjects",
+                      "preferredName",
+                      "responsibilities",
+                      "schools",
+                      "skills",
+                      "deviceEnrollmentLimit",
+                      "ownedDevices",
+                      "registeredDevices",
+                      "manager",
+                      "directReports",
+                      "memberOf",
+                      "createdObjects",
+                      "ownedObjects",
+                      "licenseDetails",
+                      "extensions",
+                      "outlook",
+                      "messages",
+                      "mailFolders",
+                      "calendar",
+                      "calendars",
+                      "calendarGroups",
+                      "calendarView",
+                      "events",
+                      "people",
+                      "contacts",
+                      "contactFolders",
+                      "inferenceClassification",
+                      "photo",
+                      "photos",
+                      "drive",
+                      "drives",
+                      "planner",
+                      "onenote",
+                      "managedDevices",
+                      "managedAppRegistrations",
+                      "deviceManagementTroubleshootingEvents",
+                      "activities",
+                      "insights",
+                      "settings"
+                    ],
+                    "type": "string"
+                  }
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Retrieved entity",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/microsoft.graph.user"
+                    }
+                  }
+                },
+                "links": {
+                  "ownedDevices": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "registeredDevices": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "manager": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "directReports": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "memberOf": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "createdObjects": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "ownedObjects": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "licenseDetails": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "extensions": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "outlook": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "messages": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "mailFolders": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "calendar": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "calendars": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "calendarGroups": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "calendarView": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "events": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "people": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "contacts": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "contactFolders": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "inferenceClassification": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "photo": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "photos": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "drive": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "drives": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "planner": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "onenote": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "managedDevices": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "managedAppRegistrations": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "deviceManagementTroubleshootingEvents": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "activities": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "insights": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  },
+                  "settings": {
+                    "operationId": "users.user.GetUser",
+                    "parameters": {
+                      "id": "$request.path.id"
+                    }
+                  }
+                }
+              },
+              "default": {
+                "$ref": "#/components/responses/error"
+              }
+            },
+            "x-ms-docs-operation-type": "operation"
+          },
+          "patch": {
+            "tags": [
+              "users.user"
+            ],
+            "summary": "Update entity in users",
+            "operationId": "users.user.UpdateUser",
+            "parameters": [
+              {
+                "name": "user-id",
+                "in": "path",
+                "description": "key: user-id",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                },
+                "x-ms-docs-key-type": "user"
+              }
+            ],
+            "requestBody": {
+              "description": "New property values",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/microsoft.graph.user"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "204": {
+                "description": "Success"
+              },
+              "default": {
+                "$ref": "#/components/responses/error"
+              }
+            },
+            "x-ms-docs-operation-type": "operation"
+          },
+          "delete": {
+            "tags": [
+              "users.user"
+            ],
+            "summary": "Delete entity from users",
+            "operationId": "users.user.DeleteUser",
+            "parameters": [
+              {
+                "name": "user-id",
+                "in": "path",
+                "description": "key: user-id",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                },
+                "x-ms-docs-key-type": "user"
+              },
+              {
+                "name": "If-Match",
+                "in": "header",
+                "description": "ETag",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "responses": {
+              "204": {
+                "description": "Success"
+              },
+              "default": {
+                "$ref": "#/components/responses/error"
+              }
+            },
+            "x-ms-docs-operation-type": "operation"
+          }
+        }
+    },
+    "components": {
+      "schemas": {
+        "microsoft.graph.user": {
+            "value": {
+              "aboutMe": "String",
+              "accountEnabled": true,
+              "activities": [
+                {
+                  "@odata.type": "microsoft.graph.userActivity"
+                }
+              ],
+              "ageGroup": "String",
+              "assignedLicenses": [
+                {
+                  "@odata.type": "microsoft.graph.assignedLicense"
+                }
+              ],
+              "assignedPlans": [
+                {
+                  "@odata.type": "microsoft.graph.assignedPlan"
+                }
+              ],
+              "birthday": "DateTimeOffset (timestamp)",
+              "businessPhones": [
+                "String"
+              ],
+              "calendar": {
+                "@odata.type": "microsoft.graph.calendar"
+              },
+              "calendarGroups": [
+                {
+                  "@odata.type": "microsoft.graph.calendarGroup"
+                }
+              ],
+              "calendars": [
+                {
+                  "@odata.type": "microsoft.graph.calendar"
+                }
+              ],
+              "calendarView": [
+                {
+                  "@odata.type": "microsoft.graph.event"
+                }
+              ],
+              "city": "String",
+              "companyName": "String",
+              "consentProvidedForMinor": "String",
+              "contactFolders": [
+                {
+                  "@odata.type": "microsoft.graph.contactFolder"
+                }
+              ],
+              "contacts": [
+                {
+                  "@odata.type": "microsoft.graph.contact"
+                }
+              ],
+              "country": "String",
+              "createdObjects": [
+                {
+                  "@odata.type": "microsoft.graph.directoryObject"
+                }
+              ],
+              "department": "String",
+              "deviceEnrollmentLimit": "Int32",
+              "deviceManagementTroubleshootingEvents": [
+                {
+                  "@odata.type": "microsoft.graph.deviceManagementTroubleshootingEvent"
+                }
+              ],
+              "directReports": [
+                {
+                  "@odata.type": "microsoft.graph.directoryObject"
+                }
+              ],
+              "displayName": "String",
+              "drive": {
+                "@odata.type": "microsoft.graph.drive"
+              },
+              "drives": [
+                {
+                  "@odata.type": "microsoft.graph.drive"
+                }
+              ],
+              "events": [
+                {
+                  "@odata.type": "microsoft.graph.event"
+                }
+              ],
+              "extensions": [
+                {
+                  "@odata.type": "microsoft.graph.extension"
+                }
+              ],
+              "givenName": "String",
+              "hireDate": "DateTimeOffset (timestamp)",
+              "imAddresses": [
+                "String"
+              ],
+              "inferenceClassification": {
+                "@odata.type": "microsoft.graph.inferenceClassification"
+              },
+              "insights": {
+                "@odata.type": "microsoft.graph.officeGraphInsights"
+              },
+              "interests": [
+                "String"
+              ],
+              "jobTitle": "String",
+              "legalAgeGroupClassification": "String",
+              "licenseDetails": [
+                {
+                  "@odata.type": "microsoft.graph.licenseDetails"
+                }
+              ],
+              "mail": "String",
+              "mailboxSettings": {
+                "@odata.type": "microsoft.graph.mailboxSettings"
+              },
+              "mailFolders": [
+                {
+                  "@odata.type": "microsoft.graph.mailFolder"
+                }
+              ],
+              "mailNickname": "String",
+              "managedAppRegistrations": [
+                {
+                  "@odata.type": "microsoft.graph.managedAppRegistration"
+                }
+              ],
+              "managedDevices": [
+                {
+                  "@odata.type": "microsoft.graph.managedDevice"
+                }
+              ],
+              "manager": {
+                "@odata.type": "microsoft.graph.directoryObject"
+              },
+              "memberOf": [
+                {
+                  "@odata.type": "microsoft.graph.directoryObject"
+                }
+              ],
+              "messages": [
+                {
+                  "@odata.type": "microsoft.graph.message"
+                }
+              ],
+              "mobilePhone": "String",
+              "mySite": "String",
+              "officeLocation": "String",
+              "onenote": {
+                "@odata.type": "microsoft.graph.onenote"
+              },
+              "onPremisesDomainName": "String",
+              "onPremisesExtensionAttributes": {
+                "@odata.type": "microsoft.graph.onPremisesExtensionAttributes"
+              },
+              "onPremisesImmutableId": "String",
+              "onPremisesLastSyncDateTime": "DateTimeOffset (timestamp)",
+              "onPremisesProvisioningErrors": [
+                {
+                  "@odata.type": "microsoft.graph.onPremisesProvisioningError"
+                }
+              ],
+              "onPremisesSamAccountName": "String",
+              "onPremisesSecurityIdentifier": "String",
+              "onPremisesSyncEnabled": true,
+              "onPremisesUserPrincipalName": "String",
+              "outlook": {
+                "@odata.type": "microsoft.graph.outlookUser"
+              },
+              "ownedDevices": [
+                {
+                  "@odata.type": "microsoft.graph.directoryObject"
+                }
+              ],
+              "ownedObjects": [
+                {
+                  "@odata.type": "microsoft.graph.directoryObject"
+                }
+              ],
+              "passwordPolicies": "String",
+              "passwordProfile": {
+                "@odata.type": "microsoft.graph.passwordProfile"
+              },
+              "pastProjects": [
+                "String"
+              ],
+              "people": [
+                {
+                  "@odata.type": "microsoft.graph.person"
+                }
+              ],
+              "photo": {
+                "@odata.type": "microsoft.graph.profilePhoto"
+              },
+              "photos": [
+                {
+                  "@odata.type": "microsoft.graph.profilePhoto"
+                }
+              ],
+              "planner": {
+                "@odata.type": "microsoft.graph.plannerUser"
+              },
+              "postalCode": "String",
+              "preferredLanguage": "String",
+              "preferredName": "String",
+              "provisionedPlans": [
+                {
+                  "@odata.type": "microsoft.graph.provisionedPlan"
+                }
+              ],
+              "proxyAddresses": [
+                "String"
+              ],
+              "registeredDevices": [
+                {
+                  "@odata.type": "microsoft.graph.directoryObject"
+                }
+              ],
+              "responsibilities": [
+                "String"
+              ],
+              "schools": [
+                "String"
+              ],
+              "settings": {
+                "@odata.type": "microsoft.graph.userSettings"
+              },
+              "skills": [
+                "String"
+              ],
+              "state": "String",
+              "streetAddress": "String",
+              "surname": "String",
+              "usageLocation": "String",
+              "userPrincipalName": "String",
+              "userType": "String"
+            }
+          }
+      }
+      "responses": {
+        "error": {
+          "description": "error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/odata.error"
+              }
+            }
+          }
+        }
+      },
+      "parameters": {
+        "top": {
+          "name": "$top",
+          "in": "query",
+          "description": "Show only the first n items",
+          "schema": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "example": 50
+        },
+        "skip": {
+          "name": "$skip",
+          "in": "query",
+          "description": "Skip the first n items",
+          "schema": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "count": {
+          "name": "$count",
+          "in": "query",
+          "description": "Include count of items",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        "filter": {
+          "name": "$filter",
+          "in": "query",
+          "description": "Filter items by property values",
+          "schema": {
+            "type": "string"
+          }
+        },
+        "search": {
+          "name": "$search",
+          "in": "query",
+          "description": "Search items by search phrases",
+          "schema": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "contracts.contract",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.deviceAppManagement",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.androidManagedAppProtection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.androidManagedAppProtections.managedMobileApp",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.androidManagedAppProtections.managedAppPolicyDeploymentSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.defaultManagedAppProtection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.defaultManagedAppProtections.managedMobileApp",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.defaultManagedAppProtections.managedAppPolicyDeploymentSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.iosManagedAppProtection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.iosManagedAppProtections.managedMobileApp",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.iosManagedAppProtections.managedAppPolicyDeploymentSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedAppPolicy",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "deviceAppManagement.managedAppRegistration",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedAppRegistrations.managedAppPolicy",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedAppRegistrations.managedAppOperation",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "deviceAppManagement.managedAppStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedEBook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedEBooks.managedEBookAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedEBooks.deviceInstallState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedEBooks.eBookInstallSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedEBooks.userInstallStateSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedEBooks.userStateSummary.deviceInstallState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mdmWindowsInformationProtectionPolicy",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileAppCategory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.managedDeviceMobileAppConfiguration",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileAppConfigurations.managedDeviceMobileAppConfigurationAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileAppConfigurations.managedDeviceMobileAppConfigurationDeviceStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileAppConfigurations.managedDeviceMobileAppConfigurationDeviceSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileAppConfigurations.managedDeviceMobileAppConfigurationUserStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileAppConfigurations.managedDeviceMobileAppConfigurationUserSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileApp",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileApps.mobileAppAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.mobileApps.mobileAppCategory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.targetedManagedAppConfiguration",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.targetedManagedAppConfigurations.managedMobileApp",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.targetedManagedAppConfigurations.targetedManagedAppPolicyAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.targetedManagedAppConfigurations.managedAppPolicyDeploymentSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.vppToken",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceAppManagement.windowsInformationProtectionPolicy",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceManagement",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.applePushNotificationCertificate",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "deviceManagement.onPremisesConditionalAccessSettings",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.detectedApp",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.detectedApps.managedDevice",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "deviceManagement.deviceCategory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicy",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicies.deviceCompliancePolicyAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicies.settingStateDeviceSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicies.deviceComplianceDeviceStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicies.deviceComplianceDeviceOverview",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicies.deviceComplianceScheduledActionForRule",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicies.scheduledActionsForRule.deviceComplianceActionItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicies.deviceComplianceUserStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicies.deviceComplianceUserOverview",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicyDeviceStateSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicySettingStateSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceCompliancePolicySettingStateSummaries.deviceComplianceSettingState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceConfigurationDeviceStateSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceConfiguration",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceConfigurations.deviceConfigurationAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceConfigurations.settingStateDeviceSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceConfigurations.deviceConfigurationDeviceStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceConfigurations.deviceConfigurationDeviceOverview",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceConfigurations.deviceConfigurationUserStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceConfigurations.deviceConfigurationUserOverview",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceEnrollmentConfiguration",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceEnrollmentConfigurations.enrollmentConfigurationAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceManagementPartner",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceManagementExchangeConnector",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.iosUpdateDeviceStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.managedDeviceOverview",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.managedDevice",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.managedDevices.deviceCategory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.managedDevices.deviceCompliancePolicyState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.managedDevices.deviceConfigurationState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.mobileThreatDefenseConnector",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.notificationMessageTemplate",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.notificationMessageTemplates.localizedNotificationMessage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.remoteAssistancePartner",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.resourceOperation",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceAndAppManagementRoleAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.roleDefinition",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.roleDefinitions.roleAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.roleDefinitions.roleAssignments.roleDefinition",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.softwareUpdateStatusSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.telecomExpenseManagementPartner",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.termsAndConditions",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.termsAndConditions.termsAndConditionsAcceptanceStatus",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.termsAndConditions.acceptanceStatuses.termsAndConditions",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.termsAndConditions.termsAndConditionsAssignment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.deviceManagementTroubleshootingEvent",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.windowsInformationProtectionAppLearningSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "deviceManagement.windowsInformationProtectionNetworkLearningSummary",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "devices.device",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "devices.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "devices.directoryObject",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "directory.directory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "directory.directoryObject",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "directoryObjects.directoryObject",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "directoryObjects.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "directoryRoles.directoryRole",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "directoryRoles.directoryObject",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "directoryRoleTemplates.directoryRoleTemplate",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "domainDnsRecords.domainDnsRecord",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "domains.domain",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "domains.directoryObject",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "domains.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "domains.domainDnsRecord",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list.columnDefinition",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list.contentType",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list.contentTypes.columnLink",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list.listItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list.items.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list.items.fieldValueSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.list.items.listItemVersion",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drive.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "drive.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "drives.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list.columnDefinition",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list.contentType",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list.contentTypes.columnLink",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list.listItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list.items.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list.items.fieldValueSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.list.items.listItemVersion",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "drives.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "drives.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "education.educationRoot",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.educationClass",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.classes.group",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.classes.educationUser",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.classes.educationSchool",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.educationUser",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.me.educationClass",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.me.educationSchool",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.me.user",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.educationSchool",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.schools.educationClass",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.schools.educationUser",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.users.educationClass",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.users.educationSchool",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "education.users.user",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groupLifecyclePolicies.groupLifecyclePolicy",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groupLifecyclePolicies.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "groups.group",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.directoryObject",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.calendarView.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.calendarView.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.calendarView.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.calendarView.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "groups.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "groups.calendar.calendarView.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.calendarView.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.events.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.events.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.events.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.events.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.events.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.events.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.calendarView.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.conversation",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.conversations.conversationThread",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.conversations.threads.post",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.events.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.groupLifecyclePolicy",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.notebooks.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.notebooks.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.onenoteOperation",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.onenotePage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.pages.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.pages.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.onenoteResource",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.sectionGroups.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.sectionGroups.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.sectionGroups.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.sections.onenotePage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.sections.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.onenote.sections.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.profilePhoto",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.plannerGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.planner.plannerPlan",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.groupSetting",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.site",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.conversationThread",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.threads.post",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.threads.posts.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.threads.posts.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.threads.posts.post",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.threads.posts.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groups.threads.posts.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groupSettings.groupSetting",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "groupSettingTemplates.groupSettingTemplate",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "invitations.invitation",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "invitations.user",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.user",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.userActivity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.activities.activityHistoryItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.activities.historyItems.userActivity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "me.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.calendarView.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.calendarView.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.calendarView.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.calendarView.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "me.calendar.calendarView.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.calendarView.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.events.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.events.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.events.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.events.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.events.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.events.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarGroups.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarGroups.calendars.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarGroups.calendars.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarGroups.calendars.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.calendarView.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.calendarView.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.calendarView.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.calendarView.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.calendarView.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.calendarView.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.events.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.events.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.events.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.events.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.events.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.events.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendars.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.calendarView.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolder",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolders.contactFolder",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolders.contact",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolders.contacts.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolders.contacts.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolders.contacts.profilePhoto",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolders.contacts.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolders.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contactFolders.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contact",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contacts.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contacts.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contacts.profilePhoto",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.contacts.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.directoryObject",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.deviceManagementTroubleshootingEvent",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.events.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.inferenceClassification",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.inferenceClassification.inferenceClassificationOverride",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.officeGraphInsights",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.insights.sharedInsight",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.insights.shared.entity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.insights.trending",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.insights.trending.entity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.insights.usedInsight",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.insights.used.entity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.licenseDetails",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolder",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.mailFolder",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.messageRule",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.message",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.messages.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.messages.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.messages.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.messages.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.mailFolders.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.managedAppRegistration",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.managedDevice",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.managedDevices.deviceCategory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.managedDevices.deviceCompliancePolicyState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.managedDevices.deviceConfigurationState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.message",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.messages.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.messages.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.messages.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.messages.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.notebooks.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.notebooks.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.onenoteOperation",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.onenotePage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.pages.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.pages.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.onenoteResource",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.sectionGroups.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.sectionGroups.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.sectionGroups.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.sections.onenotePage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.sections.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.onenote.sections.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.outlookUser",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.outlook.outlookCategory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.person",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.profilePhoto",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.plannerUser",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.planner.plannerPlan",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.planner.plannerTask",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "me.userSettings",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "organization.organization",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "organization.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "organization.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "planner.planner",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.plannerBucket",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.buckets.plannerTask",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.plannerPlan",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.plans.plannerBucket",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.plans.plannerPlanDetails",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.plans.plannerTask",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.plannerTask",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.tasks.plannerAssignedToTaskBoardTaskFormat",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.tasks.plannerBucketTaskBoardTaskFormat",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.tasks.plannerTaskDetails",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "planner.tasks.plannerProgressTaskBoardTaskFormat",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "reports.reportRoot",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "reports.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "schemaExtensions.schemaExtension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "Security.security",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "Security.alert",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.sharedDriveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list.columnDefinition",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list.contentType",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list.contentTypes.columnLink",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list.listItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list.items.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list.items.fieldValueSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.list.items.listItemVersion",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "shares.listItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.listItem.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.listItem.fieldValueSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.listItem.listItemVersion",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.listItem.versions.fieldValueSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "shares.site",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.site",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.columnDefinition",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.contentType",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.contentTypes.columnLink",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.baseItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.list",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.lists.columnDefinition",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.lists.contentType",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.lists.contentTypes.columnLink",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.lists.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.lists.listItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.lists.items.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.lists.items.fieldValueSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.lists.items.listItemVersion",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "sites.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "sites.onenote",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.notebooks.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.notebooks.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.onenoteOperation",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.onenotePage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.pages.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.pages.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.onenoteResource",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.sectionGroups.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.sectionGroups.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.sectionGroups.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.sections.onenotePage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.sections.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "sites.onenote.sections.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "subscribedSkus.subscribedSku",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "subscriptions.subscription",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.user",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.userActivity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.activities.activityHistoryItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.activities.historyItems.userActivity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "users.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.calendarView.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.calendarView.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.calendarView.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.calendarView.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "users.calendar.calendarView.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.calendarView.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.events.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.events.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.events.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.events.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.events.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.events.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarGroups.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarGroups.calendars.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarGroups.calendars.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarGroups.calendars.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.calendarView.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.calendarView.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.calendarView.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.calendarView.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.calendarView.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.calendarView.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.events.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.events.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.events.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.events.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.events.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.events.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendars.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.calendarView.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolder",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolders.contactFolder",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolders.contact",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolders.contacts.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolders.contacts.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolders.contacts.profilePhoto",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolders.contacts.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolders.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contactFolders.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contact",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contacts.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contacts.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contacts.profilePhoto",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.contacts.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.directoryObject",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.deviceManagementTroubleshootingEvent",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.drive",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.calendar",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.calendar.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.calendar.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.calendar.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.event",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.events.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.inferenceClassification",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.inferenceClassification.inferenceClassificationOverride",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.officeGraphInsights",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.insights.sharedInsight",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.insights.shared.entity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.insights.trending",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.insights.trending.entity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.insights.usedInsight",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.insights.used.entity",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.licenseDetails",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolder",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.mailFolder",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.messageRule",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.message",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.messages.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.messages.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.messages.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.messages.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.mailFolders.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.managedAppRegistration",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.managedDevice",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.managedDevices.deviceCategory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.managedDevices.deviceCompliancePolicyState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.managedDevices.deviceConfigurationState",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.message",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.messages.attachment",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.messages.extension",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.messages.multiValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.messages.singleValueLegacyExtendedProperty",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.notebooks.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.notebooks.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.onenoteOperation",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.onenotePage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.pages.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.pages.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.onenoteResource",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.sectionGroups.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.sectionGroups.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.sectionGroups.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.onenoteSection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.sections.onenotePage",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.sections.notebook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.onenote.sections.sectionGroup",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.outlookUser",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.outlook.outlookCategory",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.person",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.profilePhoto",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.plannerUser",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.planner.plannerPlan",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.planner.plannerTask",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "users.userSettings",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.listItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.listItem.driveItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.listItem.fieldValueSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.listItem.listItemVersion",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.listItem.versions.fieldValueSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.Actions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "workbooks.Functions",
+        "x-ms-docs-toc-type": "container"
+      },
+      {
+        "name": "workbooks.permission",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.thumbnailSet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.driveItemVersion",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.workbookApplication",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.workbookFunctions",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.workbookNamedItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.names.workbookWorksheet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.workbookTable",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.tables.workbookTableColumn",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.tables.workbookTableRow",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.tables.workbookTableSort",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.tables.workbookWorksheet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.workbookWorksheet",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.worksheets.workbookChart",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.worksheets.workbookNamedItem",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.worksheets.workbookPivotTable",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.worksheets.workbookWorksheetProtection",
+        "x-ms-docs-toc-type": "page"
+      },
+      {
+        "name": "workbooks.workbook.worksheets.workbookTable",
+        "x-ms-docs-toc-type": "page"
+      }
+    ]
+  }
