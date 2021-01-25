@@ -965,7 +965,7 @@
               "userType": "String"
             }
           }
-      }
+      },
       "responses": {
         "error": {
           "description": "error",
